@@ -17,7 +17,7 @@ public class TicketRunnable2 implements Runnable {
 
     @Override
     public void run() {
-        for (;;) {
+        for (int i = 0; i < 100; i++) {
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {

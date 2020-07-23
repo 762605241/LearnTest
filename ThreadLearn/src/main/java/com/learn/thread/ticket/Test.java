@@ -3,6 +3,11 @@ package com.learn.thread.ticket;
 public class Test implements Runnable {
     @Override
     public void run() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         synchronized (this) {
             while (true) {
                 if (ticket > 0) {
