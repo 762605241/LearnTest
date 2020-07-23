@@ -11,6 +11,7 @@
     <modules>
         <module>Test</module>
         <module>MusicRecord</module>
+        <module>ThreadLearn</module>
     </modules>
 
 
