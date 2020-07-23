@@ -1,32 +1,14 @@
 package com.learn.thread.ticket;
 
-public class Test implements Runnable {
-    @Override
-    public void run() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        synchronized (this) {
-            while (true) {
-                if (ticket > 0) {
-                    System.out.println(Thread.currentThread().getName() + "购买了第" + ticket-- + "张票");
-                } else {
-                    return;
-                }
-            }
-        }
-    }
-
-    private int ticket = 5;
-
+public class Test {
     public static void main(String[] args) {
-        Test test = new Test();
-        Thread t1 = new Thread(test);
-        Thread t2 = new Thread(test);
-        Thread t3 = new Thread(test);
-        Thread t4 = new Thread(test);
+        Ticket ticket = new Ticket();
+        ticket.num = 5;
+        CaleTicket caleTicket = new CaleTicket(ticket);
+        Thread t1 = new Thread(caleTicket);
+        Thread t2 = new Thread(caleTicket);
+        Thread t3 = new Thread(caleTicket);
+        Thread t4 = new Thread(caleTicket);
 
         t1.start();
         t2.start();

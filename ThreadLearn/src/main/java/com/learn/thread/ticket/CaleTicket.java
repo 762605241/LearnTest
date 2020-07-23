@@ -2,7 +2,7 @@ package com.learn.thread.ticket;
 
 public class CaleTicket implements Runnable{
 
-    private Ticket ticket;
+    static Ticket ticket;
 
     public CaleTicket() {
     }
@@ -12,21 +12,20 @@ public class CaleTicket implements Runnable{
     }
 
     public void run() {
-
-        getTicket();
         try {
-            Thread.sleep(3000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        getTicket();
+
     }
 
     private void getTicket() {
         while (true) {
-            synchronized(this.ticket.getNum()) {
-                if (this.ticket.getNum() > 0) {
-                    System.out.println(Thread.currentThread().getName() + "购买了第" + this.ticket.getNum() + "张票");
-                    this.ticket.setNum(this.ticket.getNum() - 1);
+            synchronized(ticket) {
+                if (ticket.num > 0) {
+                    System.out.println(Thread.currentThread().getName() + "购买了第" + ticket.num-- + "张票");
                 } else {
                     System.out.println("票卖完了");
                     return;

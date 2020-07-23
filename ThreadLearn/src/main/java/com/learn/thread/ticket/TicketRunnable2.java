@@ -13,7 +13,7 @@ package com.learn.thread.ticket;
  */
 public class TicketRunnable2 implements Runnable {
 
-    private int ticket = 5;
+    private int ticket = 100;
 
     @Override
     public void run() {
