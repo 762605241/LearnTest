@@ -5,8 +5,6 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Test {
     public static void main(String[] args) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
@@ -44,10 +42,6 @@ public class Test {
 //        String f = "abc" + "def";
 //        System.out.println(a == d);
 //        System.out.println(a == f);
-
-        Arrays.of
-
-
 
 
     }
