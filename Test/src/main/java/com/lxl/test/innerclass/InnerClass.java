@@ -1,5 +1,6 @@
 package com.lxl.test.innerclass;
 
+
 import lombok.Data;
 
 @Data
