@@ -12,6 +12,7 @@
         <module>Test</module>
         <module>MusicRecord</module>
         <module>ThreadLearn</module>
+        <module>ReptilesDemo</module>
     </modules>
 
 
