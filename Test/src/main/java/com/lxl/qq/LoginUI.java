@@ -28,6 +28,11 @@ public class LoginUI extends JFrame {
         initComponents();
     }
 
+    public static void main(String[] args) {
+        LoginUI loginUI = new LoginUI();
+        loginUI.setVisible(true);
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         dialogPane = new JPanel();
@@ -52,12 +57,12 @@ public class LoginUI extends JFrame {
             //======== buttonBar ========
             {
                 buttonBar.setLayout(new MigLayout(
-                        "insets dialog,alignx right",
-                        // columns
-                        "[button,fill]" +
-                                "[button,fill]",
-                        // rows
-                        null));
+                    "insets dialog,alignx right",
+                    // columns
+                    "[button,fill]" +
+                    "[button,fill]",
+                    // rows
+                    null));
 
                 //---- okButton ----
                 okButton.setText("\u767b\u5f55");
@@ -89,7 +94,7 @@ public class LoginUI extends JFrame {
 
                 { // compute preferred size
                     Dimension preferredSize = new Dimension();
-                    for (int i = 0; i < contentPanel2.getComponentCount(); i++) {
+                    for(int i = 0; i < contentPanel2.getComponentCount(); i++) {
                         Rectangle bounds = contentPanel2.getComponent(i).getBounds();
                         preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
                         preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
