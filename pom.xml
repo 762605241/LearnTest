@@ -13,6 +13,9 @@
         <module>MusicRecord</module>
         <module>ThreadLearn</module>
         <module>ReptilesDemo</module>
+        <module>ChatDemo</module>
+        <module>ChatClient</module>
+        <module>ChatService</module>
     </modules>
 
 
