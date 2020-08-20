@@ -21,7 +21,6 @@ public class SendMsgService implements Runnable{
     public void run() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println(socket.getInetAddress().toString() + ":" + socket.getPort());
             try {
                 String msg = scanner.nextLine();
                 DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());

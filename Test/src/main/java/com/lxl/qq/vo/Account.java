@@ -15,6 +15,4 @@ public class Account implements Serializable {
 
     private String userName;
     private String passWord;
-    private Socket socket;
-    private InetAddress inetAddress;
 }

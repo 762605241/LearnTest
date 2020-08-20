@@ -1,6 +1,5 @@
 package com.lxl.chat;
 
-import java.io.DataInputStream;
 import java.net.Socket;
 
 /**
@@ -17,7 +16,6 @@ public class ServerService implements Runnable{
     @Override
     public void run() {
         try {
-            System.out.println("端口：" + socket.getPort() + "连接成功");
             // 开启多线程 接收 or 发送 数据
             new Thread(new SendMsgService(socket)).start();
             new Thread(new ReceiveMsgService(socket)).start();
