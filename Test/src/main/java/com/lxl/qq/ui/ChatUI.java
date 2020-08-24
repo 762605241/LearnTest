@@ -4,7 +4,11 @@
 
 package com.lxl.qq.ui;
 
+import com.alibaba.fastjson.JSONObject;
+import com.lxl.qq.utils.NetUtils;
 import com.lxl.qq.vo.Account;
+import com.lxl.qq.vo.MessageVO;
+import com.lxl.qq.vo.ProcessResult;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -110,16 +114,25 @@ public class ChatUI extends JFrame {
         okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String destAccount = destAccountText.getText().trim();
-                String msg = msgArea.getText().trim();
-
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(msgArea.getText()).append("\n").append(account.getUserName()).append(":").append(msg);
-                msgArea.setText(stringBuilder.toString());
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-
+                        String destAccount = destAccountText.getText().trim();
+                        String msg = msgArea.getText().trim();
+                        MessageVO messageVO = new MessageVO(destAccount, msg);
+                        StringBuilder stringBuilder = new StringBuilder();
+                        stringBuilder.append(msgArea.getText()).append("\n").append(account.getUserName()).append(":").append(msg);
+                        msgArea.setText(stringBuilder.toString());
+                        String send = null;
+                        try {
+                            send = NetUtils.send("http://172.16.40.163:8082/chat/chat", (JSONObject) JSONObject.toJSON(messageVO), "UTF-8");
+                        } catch (Exception exception) {
+                            exception.printStackTrace();
+                        }
+                        System.out.println("url 访问结果：" + send);
+                        // 处理响应
+                        ProcessResult processResult = JSONObject.parseObject(send, ProcessResult.class);
+                        System.out.println(processResult);
                     }
                 }).start();
             }

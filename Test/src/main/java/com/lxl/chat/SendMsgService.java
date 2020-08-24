@@ -25,7 +25,6 @@ public class SendMsgService implements Runnable{
                 String msg = scanner.nextLine();
                 DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
                 dataOutputStream.writeUTF(msg);
-                dataOutputStream.flush();
              } catch (UnknownHostException e) {
                 e.printStackTrace();
             } catch (IOException e) {

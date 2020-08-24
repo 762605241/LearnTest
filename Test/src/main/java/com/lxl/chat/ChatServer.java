@@ -10,7 +10,7 @@ import java.util.Map;
  * @date 2020/8/17 9:23
  */
 public class ChatServer {
-    private Map<String, Socket> accountSocketMap = new HashMap<>();
+    public static Map<String, Socket> accountSocketMap = new HashMap<>();
 
     public static void main(String[] args) throws Exception {
         ServerSocket serverSocket = null;
@@ -19,6 +19,8 @@ public class ChatServer {
         serverSocket = new ServerSocket(8888);
         while (true) {
             socket = serverSocket.accept();
+            accountSocketMap.put(socket.getPort() + "", socket);
+            System.err.println(socket.getPort() + "已连接");
             new Thread(new ServerService(socket)).start();
         }
     }
