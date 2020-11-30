@@ -2,35 +2,30 @@ package com.lxl.leetcode.test;
 
 public class maxDepth {
     public static void main(String[] args) {
-
+        TreeNode a = new TreeNode(1);
+        TreeNode b = new TreeNode(2);
+        TreeNode c = new TreeNode(3);
+        TreeNode d = new TreeNode(4);
+        TreeNode e = new TreeNode(5);
+        a.left = b;
+        a.right = c;
+        b.left = d;
+        b.right = e;
+        System.out.println(maxDepth(a));
     }
-    int max = 1;
-    int i = 1;
-    public int maxDepth(TreeNode root) {
+
+
+    public static int maxDepth(TreeNode root) {
         if (root == null) {
             return 0;
         }
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
 
-
-        return 0;
+        return Math.max(left, right) + 1;
     }
 
-    public static int getChildDepth(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        if (root.left == null && root.right == root) {
-
-        }
-        int left = getChildDepth(root.left);
-        int right = getChildDepth(root.right);
-
-        return left > right ? left : right;
-
-
-    }
-
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
