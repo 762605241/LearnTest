@@ -22,5 +22,7 @@ public class Test {
          * 1、包含对象拼接创建String 不会在常量池中创建最终拼接结果的常量对象
          * 2、new String("abc") 在常量池中创建常量
          */
+
+
     }
 }
