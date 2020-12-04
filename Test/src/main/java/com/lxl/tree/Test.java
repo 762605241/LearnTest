@@ -25,9 +25,6 @@ public class Test {
         // 深度-前序-非递归-栈实现
         SearchMethod.preOrderSearchByStack(a);
         System.out.println();
-        // 深度-前序-非递归-队列实现
-        SearchMethod.preOrderSearchByQueue(a);
-        System.out.println();
         // 深度-中序-递归
         SearchMethod.inOrderSearchRecursion(a);
         System.out.println();
