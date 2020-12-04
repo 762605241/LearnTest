@@ -79,4 +79,47 @@ public class SearchMethod {
         }
     }
 
+    /**
+     * 广度优先遍历-非递归实现
+     * 层次遍历
+     * @param root
+     */
+//    public static void levelTraversal(TreeNode root) {
+//        if (root == null) {
+//            return ;
+//        }
+//        LinkedList<TreeNode> queue = new LinkedList<>();
+//        queue.offer(root);
+//        TreeNode temp = null;
+//        int i = 0;
+//        int j = 0;
+//        while (!queue.isEmpty()) {
+//            i = queue.size();
+//            j = 0;
+//            while (j < i) {
+//                temp = queue.pop();
+//                System.out.print(temp.val + " ");
+//                if (temp.left != null) {
+//                    queue.offer(temp.left);
+//                }
+//                if (temp.right != null) {
+//                    queue.offer(temp.right);
+//                }
+//                j++;
+//            }
+//        }
+//    }
+
+    public static void levelTraversal(TreeNode root) {
+        if (root == null) {
+            return ;
+        }
+        System.out.println(root.val);
+        if (root.left != null) {
+            levelTraversal(root.left);
+        }
+        if (root.right != null) {
+            levelTraversal(root.right);
+        }
+    }
 }

@@ -30,5 +30,10 @@ public class Test {
         System.out.println();
         // 深度-后序-递归
         SearchMethod.postOrderSearchRecursion(a);
+
+
+        System.out.println();
+        System.out.println();
+        SearchMethod.levelTraversal(a);
     }
 }
