@@ -16,6 +16,7 @@
         <module>ChatDemo</module>
         <module>ChatClient</module>
         <module>ChatService</module>
+        <module>DatStructure</module>
     </modules>
 
 
