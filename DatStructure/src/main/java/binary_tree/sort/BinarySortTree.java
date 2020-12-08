@@ -60,10 +60,11 @@ public class BinarySortTree {
         TreeNode parentNode = root;
         boolean isLeft = false;
         while (temp != null) {
-            parentNode = temp;
             if (temp.value > target.value) {
+                parentNode = temp;
                 temp = temp.left;
             } else if (temp.value < target.value) {
+                parentNode = temp;
                 temp = temp.right;
             } else {
                 isLeft = parentNode.value > target.value;
@@ -103,7 +104,7 @@ public class BinarySortTree {
                 parentNode.right = temp.right;
             }
             // 查找删除结点右子树最小节点
-            TreeNode minNode = temp;
+            TreeNode minNode = temp.right;
             TreeNode tempMinNode = temp.right;
             while (tempMinNode != null) {
                 if (tempMinNode == null) {
