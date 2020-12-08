@@ -1,6 +1,8 @@
 import c3p0.C3p0Test;
 import common.CommonTest;
 import dbcp.DBCPTest;
+import druid.DruidTest;
+import hikarcp.HikarcpTest;
 
 import java.sql.Connection;
 import java.sql.Statement;
@@ -40,6 +42,24 @@ public class Test {
 //            statement.close();
 //            connection.close();
 //        }//31271
+        // 使用Druid连接池插入1000条数据
+//        for (int i = 0; i <= 1000; i++) {
+//            Connection connection = DruidTest.getConnection();
+//            Statement statement = connection.createStatement();
+//            statement.executeUpdate("insert into Student values('" + i + "','" + i + "','" + i + "','" + i + "')");
+//            connection.commit();
+//            statement.close();
+//            connection.close();
+//        }//22697
+        // 使用Hikarcp连接池插入1000条数据
+        for (int i = 0; i <= 1000; i++) {
+            Connection connection = HikarcpTest.getConnection();
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("insert into Student values('" + i + "','" + i + "','" + i + "','" + i + "')");
+            connection.commit();
+            statement.close();
+            connection.close();
+        }//19722
         long d2 = System.currentTimeMillis();
         System.out.println(d2 - d1);
     }
